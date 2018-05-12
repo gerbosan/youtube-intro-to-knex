@@ -9,7 +9,7 @@ var app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.set('logger', ('dev'));
+app.use(logger('dev'));
 
 app.get('/todos', (req, res) => {
     knex.select()
