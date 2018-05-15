@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "sourceMap": false,
+    "types": [
+      "node", "express", "dotenv", "body-parser", "knex", "morgan", "mysql", "cors"
+    ],
+    "outDir": "dist",
+    "removeComments": true
+  },
+  "include":[
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
