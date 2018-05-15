@@ -1,11 +1,12 @@
 {
   "name": "knex-intro",
-  "version": "0.0.1",
-  "description": "Práctica de uso de knex, basado en: https://github.com/johnazre/youtube-intro-to-knex",
-  "main": "./src/server.js",
+  "version": "0.0.2",
+  "description": "Práctica de uso de knex, basado en: https://github.com/johnazre/youtube-intro-to-knex con Typescript",
+  "main": "./src/server.ts",
   "scripts": {
     "test": "echo \"Error: no text specified\" && exit 1",
-    "start": "ts-node ./src/server.js"
+    "start": "ts-node ./src/server.ts",
+    "watch": "nodemon"
   },
   "author": "gerbo-san",
   "keywords": [
@@ -20,6 +21,8 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "knex": "^0.14.6",
     "morgan": "^1.9.0",
@@ -27,12 +30,16 @@
   },
   "devDependencies": {
     "@types/body-parser": "^1.17.0",
+    "@types/cors": "^2.8.4",
+    "@types/dotenv": "^4.0.3",
     "@types/express": "^4.11.1",
     "@types/knex": "^0.14.14",
     "@types/morgan": "^1.7.35",
     "@types/mysql": "^2.15.4",
     "@types/node": "^6.0.110",
+    "nodemon": "^1.17.4",
     "ts-node": "^6.0.3",
+    "tslint": "^5.10.0",
     "typescript": "^2.8.3"
   }
 }
