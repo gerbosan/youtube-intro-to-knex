@@ -26,7 +26,8 @@
     "express": "^4.16.3",
     "knex": "^0.14.6",
     "morgan": "^1.9.0",
-    "mysql": "^2.15.0"
+    "mysql": "^2.15.0",
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
     "@types/body-parser": "^1.17.0",
@@ -37,6 +38,7 @@
     "@types/morgan": "^1.7.35",
     "@types/mysql": "^2.15.4",
     "@types/node": "^6.0.110",
+    "@types/serve-favicon": "^2.2.30",
     "nodemon": "^1.17.4",
     "ts-node": "^6.0.3",
     "tslint": "^5.10.0",

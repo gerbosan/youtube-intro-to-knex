@@ -8,6 +8,7 @@ import bodyParser = require('body-parser');
 import morgan = require('morgan');
 import dotenv = require('dotenv');
 import cors = require('cors');
+import favicon = require('serve-favicon');
 
 
 // Configuraciones
@@ -29,6 +30,8 @@ app.use(cors({
     methods: 'GET, POST, PUT, DELETE',
     allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
 }));
+
+app.use(favicon('./src/public/favicon.ico'));
 
 // Rutas
 app.use('/', todosRoutes);
