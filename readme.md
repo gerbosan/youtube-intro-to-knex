@@ -9,6 +9,49 @@ El código original se puede encontrar en [Github: johnazre - Youtube intro to k
 |id|title|completed|user_id|created_at|updated_at|
 |:-:|:-:|:-:|:-:|:-:|:-:|
 
+## Uso
+
+### Listar TODOS
+
+**Método: ** GET
+
+```/todos ```
+
+### Mostrar TODO específico
+
+**Método: ** GET
+
+```/todos/:id ```
+donde *id* es un número.
+
+### Mostrar TODOS específicos por usuario
+
+**Método: ** GET
+
+```/todos-of-user/:user_id```
+donde *user_id* se refiere al número de usuario.
+
+### Ingresar nuevo TODO
+
+**Método: ** POST
+
+```/todos ```
+Se ingresa los datos: *title* y *user_id*
+
+### Editar datos de TODO específico
+
+**Método: ** PUT
+
+```/todos/:id```
+donde *id* es un número que identfica al TODO
+
+### Borrar TODO específico
+
+**Método: ** DELETE
+
+```/todos/:id```
+donde *id* es un número que identifica al TODO
+
 ## Ramas
 
 **v0.0.1B:** Comenzaré a crear una versión alternativa, ordenando el código, usando mysql y Typescript. Sin embargo aún (2018-05-11), no dispongo conocimiento si Knex puede trabajar adecuadamente con Typescript. 
@@ -16,3 +59,6 @@ El código original se puede encontrar en [Github: johnazre - Youtube intro to k
 **v0.0.2:** Configurando para una adecuada salida de datos, añadiendo estados. La información está basada en un proyecto anterior: [Github: API REST usando NodeJS y Typescript](https://github.com/gerbosan/node-restful-api-tutorial). También se normaliza para que todos los procedimientos retornen los mismos datos, lista completa de TODOS, excepto las opciones de filtrado por *todos.id* y *users.id*. 
 
 **Bug:** Procedimiento para listar TODOS filtrados por user_id, resultado aparece con todo_id mostrando el user_id. El problema parece pertener a los datos que devuelve Knex. Se solucionó controlando los campos que devuelve Knex.
+*2018-05-17:* Cambio en tipo de datos que se ingresan para controlar **sql injection**. Uso de middleware [HelmetJS](https://github.com/helmetjs/helmet) para controlar ataques.
+
+*2018-5-22:* Se usó [sqlmap](https://github.com/sqlmapproject/sqlmap) para comprobar impermeabilidad del sistema.
