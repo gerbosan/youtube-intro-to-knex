@@ -3,6 +3,7 @@ import { Application } from 'express';
 
 // Routes
 import { router as todosRoutes } from './api/routes/todosRoutes';
+import { router as usersRoutes } from './api/routes/usersRoutes';
 
 import bodyParser = require('body-parser');
 import morgan = require('morgan');
@@ -44,7 +45,8 @@ app.use(cors({
 app.use(favicon('./src/public/favicon.ico'));
 
 // Rutas
-app.use('/', todosRoutes);
+app.use('/todos', todosRoutes);
+app.use('/', usersRoutes);
 
 // Server
 app.listen(app.get('port'), (error:Error) => {

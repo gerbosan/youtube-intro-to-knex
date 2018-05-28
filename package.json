@@ -1,6 +1,6 @@
 {
   "name": "knex-intro",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Práctica de uso de knex, basado en: https://github.com/johnazre/youtube-intro-to-knex con Typescript",
   "main": "./src/server.ts",
   "scripts": {

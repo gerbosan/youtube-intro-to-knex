@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from "express";
+
 const knex = require("knex")(require("../../conf/knexfile.js"));
 const controller = {
   listar: async (req: Request, res: Response, next: NextFunction) => {
@@ -8,7 +9,7 @@ const controller = {
             .then( todos => {
                 res.send(todos);
             })*/
-    knex
+    await knex
       .column(
         "todos.id",
         "todos.title",
@@ -60,7 +61,7 @@ const controller = {
 
   filtrar: async (req: Request, res: Response, next: NextFunction) => {
     const user_id: HTMLInputElement = req.params.id;
-    knex
+    await knex
       .column(
         "todos.id",
         "todos.title",
@@ -110,7 +111,7 @@ const controller = {
 
   filtrar_2: async (req: Request, res: Response, next: NextFunction) => {
     const todo_id: HTMLInputElement = req.params.id;
-    knex
+    await knex
       .column(
         "todos.id",
         "todos.title",
@@ -160,9 +161,9 @@ const controller = {
     const title: HTMLInputElement = req.body.title;
     const user_id: HTMLInputElement = req.body.user_id;
 
-    knex("todos")
+    await knex("todos")
       .insert({ title, user_id })
-      .then(() => {
+      .then(async () => {
         /* Devuelve lista de TODOS
                 knex.select()
                     .from('todos')
@@ -170,7 +171,7 @@ const controller = {
                         res.send(todos);
                     });
                 */
-        knex
+        await knex
           .column(
             "todos.id",
             "todos.title",
@@ -196,15 +197,15 @@ const controller = {
       });
   },
 
-  editar: (req: Request, res: Response, next: NextFunction) => {
+  editar: async (req: Request, res: Response, next: NextFunction) => {
     const title: HTMLInputElement = req.body.title;
     const completed: HTMLInputElement = req.body.completed;
     const todo_id: number = req.params.id;
 
-    knex("todos")
+    await knex("todos")
       .where("id", todo_id)
       .update({ title, completed })
-      .then(() => {
+      .then(async () => {
         /*
                 knex.select()
                     .from('todos')
@@ -212,7 +213,7 @@ const controller = {
                         res.send(todos);
                     });
                 */
-        knex
+        await knex
           .column(
             "todos.id",
             "todos.title",
@@ -238,12 +239,12 @@ const controller = {
       });
   },
 
-  borrar: (req: Request, res: Response, next: NextFunction) => {
+  borrar: async (req: Request, res: Response, next: NextFunction) => {
     const todo_id: HTMLInputElement = req.params.id;
-    knex("todos")
+    await knex("todos")
       .where("id", todo_id)
       .del()
-      .then(() => {
+      .then(async () => {
         /*
                 knex.select()
                     .from('todos')
@@ -251,7 +252,7 @@ const controller = {
                         res.send(todos);
                     });
                 */
-        knex
+        await knex
           .column(
             "todos.id",
             "todos.title",
