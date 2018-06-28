@@ -69,15 +69,23 @@ donde *id* es un número que identifica al TODO
 
 ## Nuevas Tablas
 ### Tabla LOGIN
-|id|email|password|created_at|updated_at|
-|:-:|:-:|:-:|:-:|:-:|
+|id|email|password|role|created_at|updated_at|
+|:-:|:-:|:-:|:-:|:-:|:-:|
 
 
 ### Tabla USERS
-|id|name|resume|role|login_id|created_at|updated_at|
+|id|name|resume|login_id|alive|created_at|updated_at|
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 
 
 ### Tabla TODOS
 |id|title|completed|user_id|created_at|updated_at|
 |:-:|:-:|:-:|:-:|:-:|:-:|
+
+*2018-06-07:* Se añade campo **alive** en la tabla *USERS* para indicar usuarios borrados. Tal que si un usuario se vuelve a integrar, se creará un nuevo registro en la tabla *USERS* y no se mostrarán los *TODOS* que el usuario creo con anterioridad.
+
+*2018-06-15:* Se añade función para verificar email en *userController.ts*. Se usa función de [Stack Overflow - How to validate an email address in Javascript?](https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript) y el regex de la respuesta dada el [Setiembre 21-2015 a 01:52](https://stackoverflow.com/a/32686261/7799373)
+
+*2018-06-20:* Se añade el uso de JsonWebToken, [npm: jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) para controlar el acceso a los procedimientos para los usuarios y según roles. Limitado solo para usersRoute.
+
+*2018-06-28:* Sistema entra en standby. Complicaciones respecto al uso de código para procesar el token y usar su contenido para tener permisos.

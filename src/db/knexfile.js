@@ -15,7 +15,7 @@ var options = {
         seeds: {
             directory: __dirname + '/db/seeds'
         }
-    },    
+    },
     production: {
         client: 'pg',
         connection: 'process.env.DATABASE_URL',
@@ -33,10 +33,10 @@ var config = options[environment];
 module.exports = require('knex')(config);
 */
 module.exports = {
-    client: 'mysql',
-    connection: {
-        user: 'tutorial_root',
-        password: 'tutorial_root',
-        database: 'knex_video'
-    }
+  client: 'mysql',
+  connection: {
+    user: 'tutorial_root',
+    password: 'tutorial_root',
+    database: 'knex_video'
+  }
 }
